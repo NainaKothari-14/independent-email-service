@@ -8,7 +8,11 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(
+    cors({
+      origin: process.env.CORS_ORIGIN,
+    })
+  );
 
 app.use("/api/email", emailRoutes);
 
