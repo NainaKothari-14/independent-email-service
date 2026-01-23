@@ -4,7 +4,7 @@ require("dotenv").config();// to load .env elements
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
   port: Number(process.env.SMTP_PORT),      // convert string to number
-  secure: process.env.SMTP_SECURE === "true", // true for 465
+  secure: process.env.SMTP_SECURE === "true", // true for 587
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
