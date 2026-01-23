@@ -10,7 +10,7 @@ function App() {
     setStatus("Sending...");
 
     try {
-      const res = await fetch("http://localhost:5001/api/email/send", {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/email/send`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
