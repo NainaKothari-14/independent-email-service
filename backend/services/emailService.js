@@ -3,14 +3,13 @@ const transporter = require("../config/nodemailer");
 const sendEmail = async ({ to, subject, text, html, attachments }) => {
   try {
     const info = await transporter.sendMail({
-      from: process.env.SMTP_FROM || `My App <${process.env.SMTP_USER}>`,
+      from: `"My App" <${process.env.SMTP_USER}>`,
       to,
       subject,
       text,
       html,
-      attachments: attachments || [],
+      attachments, // optional, can be PDF, images, etc.
     });
-
     console.log("Email sent:", info.messageId);
     return info;
   } catch (err) {
